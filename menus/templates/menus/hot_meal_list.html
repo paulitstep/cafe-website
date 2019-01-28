@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load columns %}
+
+{% block head_title %}Меню || {{ block.super }}{% endblock head_title %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col">
+            <div class="banner_1 text-center">
+                <h1 class="display-1 w-100 mx-auto">
+                    <p><small class="text-danger text-capitalize font-weight-bold">горячие блюда</small></p>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="menu-items-list">
+        {% for col in object_list|columns:4 %}
+        <div class="col-sm-6 col-lg-4 mx-auto">
+            {% for obj in col %}
+            <div class="card single-item my-4">
+                <div class="img-container">
+                    <img src="{{ obj.image.url }}" class="card-img-top menu-items-list-img" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <h3 class="text-center color-primary font-weight-bold">{{ obj }}</h3>
+                        <h4 class="text-center color-primary font-weight-bold"><small>({{ obj.components }})</small></h4>
+                        <h2 class="d-flex color-primary justify-content-between">
+                            <strong>{{ obj.price }} BYN</strong>
+                            {{ obj.size }}
+                        </h2>
+                        <form class="form-inline" method="POST" action="{% url 'add_to_cart' obj.slug %}"> {% csrf_token %}
+                            <input class="form-control" name="qty" type="number" value="1" />&nbsp;&nbsp;
+                            <input class="btn btn-danger" type="submit" value="В корзину" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

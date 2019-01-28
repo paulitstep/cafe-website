@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- header section -->
+<header id="header">
+    <div class="container">
+        <div class="row height-90 align-items-center justify-content-center">
+            <div class="col">
+                {% if messages %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    {% for message in messages %}
+                    {{ message }}<br/>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="banner text-center">
+                    <h1 class="display-1 w-50 mx-auto">
+                        <small class="text-danger font-weight-bold">Paul</small>
+                        <p><small class="color-primary font-weight-bold">Сеть кафе</small></p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#menu-items" class="btn header-link"><i class="fas fa-arrow-down"></i></a>
+</header>
+<!-- end of header section -->
+
+<!-- menu items section -->
+<section class="py-5" id="menu-items">
+    <div class="container my-5">
+        <div class="row align-items-center justify-content-center">
+            <div class="col">
+                <div class="banner_1 text-center">
+                    <h1 class="display-1 w-100 mx-auto">
+                        <p><small class="color-primary font-weight-bold">Категории меню</small></p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 mx-auto col-sm-6 col-lg-6 my-3">
+                <div class="item-container">
+                    <img src="{% static 'img/menu-pizza.jpeg' %}" class="img-fluid img-thumbnail item-img" alt="menu-pizza">
+                    <a href="{% url 'menus:pizza' %}">
+                        <h1 class="text-uppercase text-center font-weight-bold item-link px-3">Пицца</h1>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-10 mx-auto col-sm-6 col-lg-6 my-3">
+                <div class="item-container">
+                    <img src="{% static 'img/menu-salad.jpeg' %}" class="img-fluid img-thumbnail item-img" alt="menu-salad">
+                    <a href="{% url 'menus:salad' %}">
+                        <h1 class="text-uppercase text-center font-weight-bold item-link px-3">Салаты</h1>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-10 mx-auto col-sm-6 col-lg-6 my-3">
+                <div class="item-container">
+                    <img src="{% static 'img/menu-hot-meal.jpeg' %}" class="img-fluid img-thumbnail item-img" alt="menu-hot-meal">
+                    <a href="{% url 'menus:hot_meal' %}">
+                        <h1 class="text-uppercase text-center font-weight-bold item-link px-3">Горячие блюда</h1>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-10 mx-auto col-sm-6 col-lg-6 my-3">
+                <div class="item-container">
+                    <img src="{% static 'img/menu-drink.jpeg' %}" class="img-fluid img-thumbnail item-img" alt="menu-drink">
+                    <a href="{% url 'menus:drink' %}">
+                        <h1 class="text-uppercase text-center font-weight-bold item-link px-3">Напитки</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of menu items section -->
+
+<!-- about section -->
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 my-4 color-primary">
+                <h1 class="text-center text-uppercase display-3">о нас</h1>
+                <h2 class="text-muted">Любое из четырех кафе "Paul" отлично подойдет для проведения бизнес-встреч,
+                    семейного времяпрепровождения и романтических свиданий.</h2>
+                <a href="{% url 'cafe_view' %}" class="btn btn-lg btn-block btn-danger my-4 text-capitalize">сеть кафе</a>
+            </div>
+            <div class="col-md-6 about-pics my-4 d-none d-lg-block">
+                <img src="{% static 'img/кафе_академия_наук.jpeg' %}" alt="cafe" class="img-1 img-thumbnail about-image">
+                <img src="{% static 'img/кафе_мележа.jpeg' %}" alt="cafe" class="img-2 img-thumbnail about-image">
+                <img src="{% static 'img/кафе_лебяжий.jpeg' %}" alt="cafe" class="img-3 img-thumbnail about-image">
+                <img src="{% static 'img/кафе_уручье.jpeg' %}" alt="cafe" class="img-4 img-thumbnail about-image">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of about section -->
+
+<!-- reviews section -->
+<section id="reviews" class="py-5">
+    <div id="slider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
+                            <div class="align-self-center ml-3">
+                                <img src="{% static 'img/member1.jpeg' %}" alt="" class="rounded-circle review-img">
+                            </div>
+                            <div class="review-text px-5">
+                                <h2 class="text-capitalize mb-3 text-danger">инна</h2>
+                                <p class="h4 text-secondary font-weight-bold">Отличное заведение! Хорошо провели вечер! Отмечали др! Получили
+                                скидку на заказ! Спасибо официанту за обслуживание. Всем рекомендую.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
+                            <div class="align-self-center ml-3">
+                                <img src="{% static 'img/member2.jpeg' %}" alt="" class="rounded-circle review-img">
+                            </div>
+                            <div class="review-text px-5">
+                                <h2 class="text-capitalize mb-3 text-danger">мигель</h2>
+                                <p class="h4 text-secondary font-weight-bold">Обедали у вас сегодня на Уручье, спасибо за
+                                профессионализм ваших официантов, за общую позитивную обстановку и спокойную атмосферу в кафе)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
+                            <div class="align-self-center ml-3">
+                                <img src="{% static 'img/member3.jpeg' %}" alt="" class="rounded-circle review-img">
+                            </div>
+                            <div class="review-text px-5">
+                                <h2 class="text-capitalize mb-3 text-danger">александр</h2>
+                                <p class="h4 text-secondary font-weight-bold">Отличное место с шикарной и вкусной кухней возле дома.
+                                Мы постоянные клиенты кафе "Paul" в Уручье. Очень нравится и часто бываем. Отличное обслуживание.
+                                Минусов нет, только плюсы! "Paul" Уручье супер!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
+                            <div class="align-self-center ml-3">
+                                <img src="{% static 'img/member4.jpeg' %}" alt="" class="rounded-circle review-img">
+                            </div>
+                            <div class="review-text px-5">
+                                <h2 class="text-capitalize mb-3 text-danger">светлана</h2>
+                                <p class="h4 text-secondary font-weight-bold">Очень уютное, милое место. Несмотря на то, что
+                                даже в будний день было много людей, блюда приносили вовремя. Порции большие.
+                                Официанты дружелюбные и хорошие) Спасибо, теперь это любимое место на районе)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#slider" class="carousel-control-prev" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+
+        <a href="#slider" class="carousel-control-next" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</section>
+<!-- end of reviews section -->
+
+<!-- blog section -->
+<section id="blog" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+               <div class="banner_1 text-center">
+                    <h1 class="display-1 w-100 mx-auto color-primary">
+                        <p><small class="font-weight-bold">Блог кафе "Paul"</small></p>
+                        <p class="h2">Добро пожаловать в наш корпоративный блог, где публикуются последние новости
+                        и ценные советы!</p>
+                        <a href="{% url 'blog-home' %}" class="btn btn-lg btn-danger m-2">Перейти в блог</a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of blog section -->
+
+<!-- footer -->
+<div class="container-fluid info p-3" id="bottom-icons">
+    <div class="row">
+        <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+            <div class="info-icons p-2">
+                <a href="#" class="mr-2 color-primary"><i class="fab fa-facebook fa-2x"></i></a>
+
+                <a href="#" class="mr-2 color-primary"><i class="fab fa-instagram fa-2x"></i></a>
+
+                <a href="#" class="mr-2 color-primary"><i class="fab fa-twitter fa-2x"></i></a>
+
+                <a href="#" class="mr-2 color-primary"><i class="fab fa-google-plus fa-2x"></i></a>
+            </div>
+            <h2 class="color-primary p-2">
+                <p>C радостью ответим на Ваши вопросы: ‎000 00 00 (vel, mts)</p>
+                <p>По вопросам вакансий: ‎+375 00 000 00 00</p>
+                <p>По вопросам маркетинга: paul@e-mail.com</p>
+            </h2>
+        </div>
+    </div>
+</div>
+
+<a href="#header" id="back-to-top" class="p-1"><i class="fas fa-arrow-up color-primary fa-3x"></i></a>
+<!-- end of footer -->
+
+{% endblock %}

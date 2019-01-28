@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load columns %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}Кафе || {{ block.super }}{% endblock head_title %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col color-primary py-5">
+            <h1 class="text-center">Жду Вас в моих кафе с располагающей атмосферой!</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for col in object_list|columns:2 %}
+        <div class="col color-primary">
+<ul>
+{% for obj in col %}
+    {% if obj.image %}
+    <li style="list-style: none;"><img src="{{ obj.image.url }}" class="leftpic img-thumbnail bg-danger border border-danger"></li>
+    {% endif %}
+    <li><h3 class="font-weight-bold">{{ obj }}</h3></li>
+    <li style="list-style: none;">Адрес: {{ obj.address }}</li>
+    <li style="list-style: none;">Кухня: {{obj.category }}</li>
+    <li style="list-style: none;">Время работы: {{ obj.working_hours }}</li>
+    <li style="list-style: none;">Телефон: {{ obj.phone }}</li>
+    <li style="list-style: none;">Кондиционер: {{ obj.conditioner }}</li><br/>
+    <input class="btn btn-lg btn-danger" value="Заказать столик" type="button" onclick="location.href='#booking'" /><hr/>
+{% endfor %}
+</ul>
+        </div>
+        {% endfor %}
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col color-primary py-5">
+            <div id="booking"></div>
+            <h1 class="text-center">Бронирование</h1>
+         </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4 color-primary">
+            <form method="POST"> {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form|crispy }}
+                </fieldset>
+                <button class="btn btn-lg btn-danger" type="submit">Забронировать</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

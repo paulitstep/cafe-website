@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col h4 py-5 mx-auto">
+            {% if empty %}
+            <h1 class="text-center text-danger py-4">{{ empty_message }}</h1>
+
+            {% else %}
+            <table class="table color-primary">
+            <tr>
+                <th>Наименование</th>
+                <th>Размер</th>
+                <th>Кол-во</th>
+                <th>Цена</th>
+                <th></th>
+            </tr>
+            {% for item in cart.cartitem_set.all %}
+            <tr>
+                <td width="50%">{{ item.product }}</td>
+                <td width="15%">{{ item.product.size }}</td>
+                <td width="15%">{{ item.quantity }}</td>
+                <td width="20%">{{ item.product.price }} BYN</td>
+                <td><a href='{% url "remove_from_cart" item.id %}'>Удалить</a></td>
+            </tr>
+            {% endfor %}
+            <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Всего: {{ cart.total|floatformat:-2 }} BYN</td>
+                <td></td>
+            </tr>
+            </tfoot>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4 py-4">
+            <h1 class="color-primary font-weight-bold text-center">Заказ</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4 color-primary text-center h5">
+            <form method="POST" action="{% url 'order' %}"> {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form|crispy }}
+                </fieldset>
+                <input class="btn btn-lg btn-danger" type="submit" value="Заказать" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

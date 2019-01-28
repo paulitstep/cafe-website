@@ -1,0 +1,147 @@
+body {
+    background: #000000;
+    color: #333333;
+}
+
+.color-primary {
+    color: #c9c1ac;
+}
+
+.navbar {
+    font-family: 'Marck Script', cursive;
+    padding: 10px 10px;
+    transition: all 1s ease;
+}
+
+.navbar-background {
+    padding: 5px 20px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    transition: all 1s ease;
+}
+
+.navbar-brand:hover {
+    color: #000000;
+}
+
+.dropdown-item {
+    font-size: 23px;
+    color: #c9c1ac;
+}
+
+.nav-link {
+    color: #c9c1ac;
+    text-decoration: none;
+    transition: all 2s ease;
+    font-size: 23px;
+}
+
+.nav-link:hover {
+    color: #000000;
+}
+
+.toggler-btn {
+    border: 2px solid #c9c1ac;
+    padding: 5px;
+    transition: all 2s ease;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    margin: 5px;
+    background: #c9c1ac;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.content-section {
+  background: #000000;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #c9c1ac;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+  color: #c9c1ac;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.article-metadata a:hover{
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125 px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+  color: #c9c1ac;
+}
+
+.form-group {
+    color: #c9c1ac;
+}
+
+.comment {
+    color: #c9c1ac;
+    border-top: 1px solid #c9c1ac;
+    border-bottom: 1px solid #c9c1ac;
+}
+
+
+#back-to-top {
+    background: #d9534f;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.scrollTop {
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+}
