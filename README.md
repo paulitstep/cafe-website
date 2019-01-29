@@ -1,7 +1,8 @@
-My debut project is a full-featured website of a fictional cafe franchise.
+My debut project is a <b>full-featured website of a fictional cafe franchise</b>.
 
 It consists of 5 applications: Cafe, Menu, Cart, Order and Blog apps. 
 
-For back-end purposes I used Python Web framework Django. Front-end is implemented in HTML/CSS and Bootstrap CSS framework.
+For back-end purposes I used Python Web framework <i>Django</i>. Front-end is implemented in <i>HTML/CSS</i> and <i>Bootstrap</i>
+CSS framework.
 
 Subsequent changes / additions are possible.
