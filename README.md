@@ -1,3 +1,5 @@
+<h1>Cafe Website</h1>
+
 My debut project is a <b>full-featured website of a fictional cafe franchise</b>.
 
 It consists of 5 applications: Cafe, Menu, Cart, Order and Blog apps. 
